@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\ItemController;
+use App\Models\UserItem;
+use App\Models\UserVenue;
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,6 +24,13 @@ Route::get('/admin', function () {
     return view('admin.admin');
 })->middleware('auth')->can(('view-bakcend'));
 
+//ivy
+Route::get('/currentRental', function (){
+    return view('/user/currentRental', [
+        'userItems' => UserItem::all(),
+        'userVenues' => UserVenue::all()
+    ]);
+});
 
 Route::get('/account/info',[RegisteredUserController::class,'index'])->middleware('auth');
 Route::get('/register',[RegisteredUserController::class,'create']);

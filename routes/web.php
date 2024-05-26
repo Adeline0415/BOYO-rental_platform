@@ -6,6 +6,8 @@ use App\Http\Controllers\SessionController;
 use App\Http\Controllers\ItemController;
 use App\Models\UserItem;
 use App\Models\UserVenue;
+use App\Models\UserHistoryItem;
+use App\Models\UserHistoryVenue;
 
 Route::get('/', function () {
     return view('welcome');
@@ -31,6 +33,13 @@ Route::get('/currentRental', function (){
         'userVenues' => UserVenue::all()
     ]);
 });
+Route::get('/history', function (){
+    return view('/user/history', [
+        'userHistoryItems' => UserHistoryItem::all(),
+        'userHistoryVenues' => UserHistoryVenue::all()
+    ]);
+});
+
 
 Route::get('/account/info',[RegisteredUserController::class,'index'])->middleware('auth');
 Route::get('/register',[RegisteredUserController::class,'create']);

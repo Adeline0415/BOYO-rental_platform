@@ -6,6 +6,8 @@ use App\Http\Controllers\SessionController;
 use App\Http\Controllers\ItemController;
 use App\Models\UserItem;
 use App\Models\UserVenue;
+use App\Models\UserHistoryItem;
+use App\Models\UserHistoryVenue;
 
 Route::get('/', function () {
     return view('welcome');
@@ -25,12 +27,22 @@ Route::get('/admin', function () {
 })->middleware('auth')->can(('view-bakcend'));
 
 //ivy
+Route::get('/generalHome', function (){
+    return view('/general/generalHome');
+});
 Route::get('/currentRental', function (){
     return view('/user/currentRental', [
         'userItems' => UserItem::all(),
         'userVenues' => UserVenue::all()
     ]);
 });
+Route::get('/history', function (){
+    return view('/user/history', [
+        'userHistoryItems' => UserHistoryItem::all(),
+        'userHistoryVenues' => UserHistoryVenue::all()
+    ]);
+});
+
 
 Route::get('/account/info',[RegisteredUserController::class,'index'])->middleware('auth');
 Route::get('/register',[RegisteredUserController::class,'create']);

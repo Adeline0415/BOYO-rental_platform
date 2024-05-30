@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/adminGeneralTable.css" rel="stylesheet" type="text/css">
-    <title>Current Rental Page</title>
+    <title>Home Page</title>
     <style>
         .tables-container {
             max-width: 1200px;
@@ -27,47 +27,41 @@
 </head>
 <body>
     @include('navTest')
-    <h1>This is current Rental</h1>
+    <h1>This is History</h1>
     <div class="tables-container">
-        <h2>租借物品</h2>
+        <h2>租借物品記錄</h2>
         <ul class="responsive-table">
             <li class="table-header">
                 <div class="col">物品名稱</div>
                 <div class="col">編號</div>
                 <div class="col">租借日期</div>
-                <div class="col">應歸還日期</div>
-                <div class="col">逾期</div>
+                <div class="col">歸還日期</div>
             </li>
 
-            @foreach ($userItems as $userItem)
-                <x-admin-general-table-row :items="$userItem" :columns="[
+            @foreach ($userHistoryItems as $userHistoryItem)
+                <x-admin-general-table-row :items="$userHistoryItem" :columns="[
                     ['key' => '物品名稱', 'label' => '物品名稱'],
                     ['key' => '編號', 'label' => '編號'],
                     ['key' => '租借日期', 'label' => '租借日期'],
-                    ['key' => '應歸還日期', 'label' => '應歸還日期'],
-                    ['key' => '逾期', 'label' => '逾期']
+                    ['key' => '歸還日期', 'label' => '應歸還日期']
                 ]"/>
             @endforeach
         </ul>
-        <h2>預約場地</h2>
+        <h2>預約場地記錄</h2>
         <ul class="responsive-table">
             <li class="table-header">
                 <div class="col">場地名稱</div>
-                <div class="col">預定日期</div>
-                <div class="col">預定時段</div>
-                <div class="col">取消</div>
+                <div class="col">租借日期</div>
+                <div class="col">租借時段</div>
             </li>
 
-            @foreach ($userVenues as $userVenue)
-                <x-admin-general-table-row :items="$userVenue" :columns="[
+            @foreach ($userHistoryVenues as $userHistoryVenue)
+                <x-admin-general-table-row :items="$userHistoryVenue" :columns="[
                     ['key' => '場地名稱', 'label' => '場地名稱'],
-                    ['key' => '預定日期', 'label' => '預定日期'],
-                    ['key' => '預定時段', 'label' => '預定時段']
+                    ['key' => '租借日期', 'label' => '租借日期'],
+                    ['key' => '租借時段', 'label' => '租借時段']
 
                 ]">
-                    <div class="col">
-                        <button>取消</button>
-                    </div>
                 </ x-admin-general-table-row>
             @endforeach
         </ul>

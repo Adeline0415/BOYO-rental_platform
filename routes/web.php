@@ -19,7 +19,7 @@ Route::get('/home', function () {
 })->middleware('auth');
 
 Route::get('/nav', function () {
-    return view('navTest');
+    return view('admin.accountManage');
 });
 
 Route::get('/admin', function () {

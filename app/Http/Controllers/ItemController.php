@@ -9,7 +9,10 @@ class ItemController extends Controller
     //
     public function index()
     {
-        $items = Item::all();
+
+        //$items = Item::all();
+        $items = Item::select('Name', 'Borrowed')->get();
+        
         // 或者使用分頁
         // $items = Item::paginate(10);
         

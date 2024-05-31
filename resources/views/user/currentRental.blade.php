@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/adminGeneralTable.css" rel="stylesheet" type="text/css">
-    <title>Home Page</title>
+    <title>Current Rental Page</title>
     <style>
         .tables-container {
             max-width: 1200px;

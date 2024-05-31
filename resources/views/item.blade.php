@@ -1,3 +1,6 @@
+@php echo gettype($items) @endphp
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,7 +71,6 @@
     @foreach ($items as $item)
     <div>
         <h3>{{ $item->Name }}</h3>
-        <p>Type: {{ $item->type->typename }}</p>
         <p>Borrowed: {{ $item->Borrowed ? 'Yes' : 'No' }}</p>
         <!-- 顯示其他物品詳情 -->
     </div>

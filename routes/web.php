@@ -19,7 +19,7 @@ Route::get('/home', function () {
 })->middleware('auth');
 
 Route::get('/nav', function () {
-    return view('navTest');
+    return view('admin.accountManage');
 });
 
 Route::get('/admin', function () {
@@ -27,6 +27,9 @@ Route::get('/admin', function () {
 })->middleware('auth')->can(('view-bakcend'));
 
 //ivy
+Route::get('/generalHome', function (){
+    return view('/general/generalHome');
+});
 Route::get('/currentRental', function (){
     return view('/user/currentRental', [
         'userItems' => UserItem::all(),
